@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>متجر ميزان بهاء العالمي | Mizan Baha Global Store</title>
+  <style>
+    :root {
+      --bg: #070c18;
+      --surface: #0d1526;
+      --card: #121f38;
+      --card-2: #172848;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --gold: #f59e0b;
+      --gold-2: #fbbf24;
+      --green: #10b981;
+      --green-dark: #059669;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --teal: #0d9488;
+      --red: #ef4444;
+      --border: rgba(148, 163, 184, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #111e38 0%, var(--bg) 68%);
+      color: var(--text);
+      line-height: 1.65;
+      padding-bottom: 56px;
+    }
+
+    .ltr-text {
+      direction: ltr;
+      unicode-bidi: isolate;
+      text-align: left;
+    }
+
+    header {
+      background: rgba(9, 15, 28, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding: 12px 16px;
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-m {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--gold-2), var(--gold));
+      color: #0b1120;
+      font-weight: 900;
+      font-size: 1.45rem;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .title-ar {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    .title-en {
+      margin: 1px 0;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--gold-2);
+    }
+
+    .founder-text {
+      margin: 2px 0 0;
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    .header-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    select, input {
+      width: 100%;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 13px;
+      font-size: 0.95rem;
+    }
+
+    .header-controls select {
+      width: auto;
+      padding: 8px 11px;
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.12s ease, opacity 0.15s ease, background 0.15s ease;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: #04130d;
+    }
+
+    .btn-green:hover {
+      background: var(--green-dark);
+      color: #ffffff;
+    }
+
+    .btn-blue {
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    .btn-blue:hover {
+      background: var(--blue-dark);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #0b1120;
+    }
+
+    .btn-teal {
+      background: var(--teal);
+      color: #ffffff;
+    }
+
+    .btn-dark {
+      background: #283548;
+      color: #f8fafc;
+    }
+
+    .btn-red {
+      background: var(--red);
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+
+    .hero-panel {
+      background: linear-gradient(160deg, var(--card) 0%, var(--card-2) 100%);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      border-radius: 22px;
+      padding: 24px 18px;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .hero-panel h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      color: var(--gold-2);
+      font-weight: 900;
+    }
+
+    .hero-panel h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .hero-founder {
+      margin: 0 0 12px;
+      color: var(--gold-2);
+      font-weight: 700;
+      font-size: 0.96rem;
+    }
+
+    .hero-p-ar {
+      max-width: 820px;
+      margin: 0 auto 8px;
+      color: #e2e8f0;
+      font-size: 0.96rem;
+    }
+
+    .hero-p-en {
+      max-width: 820px;
+      margin: 0 auto 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .pills-col {
+      max-width: 440px;
+      margin: 0 auto 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pill-item {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 22px;
+    }
+
+    .section-head {
+      border-right: 4px solid var(--gold);
+      padding-right: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.22rem;
+      font-weight: 900;
+    }
+
+    .section-head .en-sub {
+      margin: 2px 0 0;
+      color: var(--gold-2);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .gateway-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+
+    .gateway-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .gateway-title-ar {
+      margin: 0;
+      color: var(--gold-2);
+      font-size: 1.08rem;
+      font-weight: 800;
+    }
+
+    .gateway-title-en {
+      margin: 2px 0 10px;
+      color: var(--gold-2);
+      font-size: 0.96rem;
+      font-weight: 700;
+    }
+
+    .gateway-desc-ar {
+      margin: 0 0 4px;
+      color: #e2e8f0;
+      font-size: 0.92rem;
+    }
+
+    .gateway-desc-en {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+
+    .product-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .product-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .price-pill {
+      background: rgba(16, 185, 129, 0.16);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 12px;
+      padding: 6px 14px;
+      font-weight: 900;
+      font-size: 1.05rem;
+    }
+
+    .cat-pill {
+      background: rgba(245, 158, 11, 0.14);
+      color: var(--gold-2);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 12px;
+      padding: 6px 12px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .prod-name-ar {
+      margin: 0;
+      font-size: 1.18rem;
+      font-weight: 900;
+    }
+
+    .prod-name-en {
+      margin: 2px 0 10px;
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: #e2e8f0;
+    }
+
+    .prod-desc-ar {
+      margin: 0 0 4px;
+      color: #cbd5e1;
+      font-size: 0.92rem;
+    }
+
+    .prod-desc-en {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .order-modal-box {
+      background: var(--card);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .modal-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    .close-x {
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      background: var(--card-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .field-group {
+      margin-bottom: 14px;
+    }
+
+    .field-label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 800;
+      font-size: 0.94rem;
+    }
+
+    .actions-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .bankak-reveal {
+      background: rgba(13, 148, 136, 0.16);
+      border: 1px solid rgba(45, 212, 191, 0.45);
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 14px;
+      line-height: 1.85;
+    }
+
+    .summary-output {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 14px;
+      white-space: pre-line;
+      font-size: 0.9rem;
+    }
+
+    .history-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand-box">
+        <div class="logo-m">M</div>
+        <div>
+          <p class="title-ar">متجر ميزان بهاء العالمي</p>
+          <p class="title-en ltr-text">Mizan Baha Global Store</p>
+          <p class="founder-text">المؤسس: د. بهاء الدين علي زايد | <span class="ltr-text">Founder: Dr. Baha Eldien Ali Zayed</span></p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <select id="langSelect" aria-label="Language">
+          <option value="ar">العربية + English (AR/EN)</option>
+          <option value="en">English + العربية (EN/AR)</option>
+        </select>
+
+        <select id="currencySelect" aria-label="Currency">
+          <option value="USD" data-rate="1" data-symbol="$">USD ($)</option>
+          <option value="SAR" data-rate="3.75" data-symbol="ر.س">SAR (ر.س)</option>
+          <option value="AED" data-rate="3.67" data-symbol="د.إ">AED (د.إ)</option>
+          <option value="KWD" data-rate="0.31" data-symbol="د.ك">KWD (د.ك)</option>
+          <option value="QAR" data-rate="3.64" data-symbol="ر.ق">QAR (ر.ق)</option>
+          <option value="MYR" data-rate="4.45" data-symbol="RM">MYR (RM)</option>
+        </select>
+
+        <button type="button" class="btn-green" onclick="scrollToEl('orderFormSection')">
+          إتمام الطلب | Order
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-panel">
+      <h1>منصة التسوق والشحن الدولي الشاملة</h1>
+      <h2 class="ltr-text" style="text-align:center;">Comprehensive Global Shopping &amp; International Shipping Platform</h2>
+      <p class="hero-founder">المؤسس: د. بهاء الدين علي زايد | <span class="ltr-text">Founder: Dr. Baha Eldien Ali Zayed — Mizan Baha Global Store</span></p>
+      <p class="hero-p-ar">خدمات الشحن وتنسيق الدفع إلى أمريكا، كندا، أستراليا، أوروبا، آسيا، أفريقيا، الخليج (بما فيها الكويت وقطر)، وأمريكا الجنوبية.</p>
+      <p class="hero-p-en ltr-text" style="text-align:center;">Shipping &amp; payment coordination to USA, Canada, Australia, Europe, Asia, Africa, GCC (including Kuwait &amp; Qatar), and South America.</p>
+
+      <div class="pills-col ltr-text">
+        <div class="pill-item" style="text-align:center;">Worldwide Shipping 🌐</div>
+        <div class="pill-item" style="text-align:center;">Visa / Mastercard / PayPal 💳</div>
+        <div class="pill-item" style="text-align:center;">Bankak Transfer (6283870) 🏦</div>
+      </div>
+
+      <button type="button" class="btn-green" onclick="scrollToEl('featuredSection')">
+        تصفح المنتجات والطلب | Browse &amp; Order
+      </button>
+    </section>
+
+    <section class="section-card" id="gatewaysSection">
+      <div class="section-head">
+        <h2>بوابات الدفع والربط الخارجي</h2>
+        <p class="en-sub ltr-text">Payment Gateways &amp; Store Links</p>
+      </div>
+
+      <div class="gateway-card">
+        <h3 class="gateway-title-ar">بوابة الدفع الداخلية — بنكك</h3>
+        <p class="gateway-title-en ltr-text">Internal Bankak Gateway</p>
+        <p class="gateway-desc-ar">تحويل مباشر مع إظهار حساب بنكك بعد إدخال بيانات العميل.</p>
+        <p class="gateway-desc-en ltr-text">Direct transfer revealing Bankak account details after customer entry.</p>
+        <button type="button" class="btn-blue" style="width:100%;" onclick="focusOrderWithMode('bankak')">
+          <div>الدفع عبر بنكك</div>
+          <div class="ltr-text" style="text-align:center;font-size:0.86rem;opacity:0.92;">Pay via Bankak</div>
+        </button>
+      </div>
+
+      <div class="gateway-card">
+        <h3 class="gateway-title-ar">ربط المتجر الخارجي</h3>
+        <p class="gateway-title-en ltr-text">External Storefront Link</p>
+        <p class="gateway-desc-ar">فتح رابط المتجر أو بوابة الدفع الخارجية المرتبطة.</p>
+        <p class="gateway-desc-en ltr-text">Open the linked external storefront or payment portal URL.</p>
+        <button type="button" class="btn-teal" style="width:100%;" onclick="openExternalPortal()">
+          <div>فتح البوابة</div>
+          <div class="ltr-text" style="text-align:center;font-size:0.86rem;opacity:0.92;">Open Portal</div>
+        </button>
+      </div>
+
+      <div class="gateway-card">
+        <h3 class="gateway-title-ar">تأكيد الطلب بالبريد</h3>
+        <p class="gateway-title-en ltr-text">Email Order Confirmation</p>
+        <p class="gateway-desc-ar">إرسال ملخص الطلب مباشرة إلى البريد الإلكتروني المعتمد.</p>
+        <p class="gateway-desc-en ltr-text">Send order summary directly to the designated merchant email.</p>
+        <button type="button" class="btn-green" style="width:100%;" onclick="focusOrderWithMode('email')">
+          <div>إرسال بالبريد</div>
+          <div class="ltr-text" style="text-align:center;font-size:0.86rem;opacity:0.92;">Send via Email</div>
+        </button>
+      </div>
+    </section>
+
+    <section class="section-card" id="featuredSection">
+      <div class="section-head">
+        <h2>المنتجات المختارة</h2>
+        <p class="en-sub ltr-text">Featured Products</p>
+      </div>
+      <div id="productsList"></div>
+    </section>
+
+    <section class="section-card" id="orderFormSection">
+      <div class="order-modal-box">
+        <div class="modal-header-row">
+          <div>
+            <h2 style="margin:0;font-size:1.25rem;font-weight:900;">إتمام الطلب | <span class="ltr-text">Complete Order</span></h2>
+            <p id="selectedProductLabel" style="margin:4px 0 0;color:var(--gold-2);font-weight:700;font-size:0.92rem;"></p>
+          </div>
+          <button type="button" class="close-x" onclick="clearOrderForm()" aria-label="Clear">✕</button>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="productSelect">المنتج المحدد | <span class="ltr-text">Selected Product</span></label>
+          <select id="productSelect" onchange="onProductChange()"></select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="custName">اسم العميل | <span class="ltr-text">Customer Name</span></label>
+          <input type="text" id="custName" placeholder="الاسم الكامل | Full Name" />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="custContact">الهاتف أو البريد | <span class="ltr-text">Phone or Email</span></label>
+          <input type="text" id="custContact" placeholder="رقم الهاتف أو البريد الإلكتروني | Phone or Email" />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="bankakRef">مرجع إشعار بنكك | <span class="ltr-text">Bankak Reference</span></label>
+          <input type="text" id="bankakRef" placeholder="رقم مرجع التحويل أو ملاحظة | Transfer Reference / Note" />
+        </div>
+
+        <div class="actions-stack">
+          <button type="button" class="btn-gold" onclick="confirmAndShowBankak()">
+            <div>تأكيد وإظهار حساب بنكك | <span class="ltr-text">Confirm &amp; Show Account</span></div>
+          </button>
+
+          <button type="button" class="btn-green" onclick="saveAndSendEmail()">
+            <div>حفظ وإرسال عبر الإيميل | <span class="ltr-text">Save &amp; Send via Email</span></div>
+          </button>
+
+          <button type="button" class="btn-dark" onclick="copySummaryOnly()">
+            <div>نسخ ملخص الطلب | <span class="ltr-text">Copy Summary</span></div>
+          </button>
+        </div>
+
+        <div id="bankakDetailsBox" class="bankak-reveal" style="display:none;"></div>
+        <div id="summaryBox" class="summary-output" style="display:none;"></div>
+      </div>
+    </section>
+
+    <section class="section-card" id="historySection">
+      <div class="history-header">
+        <div>
+          <h2 style="margin:0;font-size:1.18rem;font-weight:900;">سجل الطلبات</h2>
+          <p class="en-sub ltr-text" style="margin:2px 0 0;">Order History</p>
+        </div>
+        <button type="button" class="btn-red" onclick="resetAll()">
+          <div>إعادة ضبط</div>
+          <div class="ltr-text" style="text-align:center;font-size:0.8rem;">Reset</div>
+        </button>
+      </div>
+      <div id="historyList" class="muted">لا توجد طلبات مسجلة حالياً. | <span class="ltr-text">No orders recorded yet.</span></div>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = "mizan_baha_store_polished_v3";
+    const MERCHANT_EMAIL = "dbahaali709@gmail.com";
+    const BANKAK_ACCOUNT = "6283870";
+    const BANKAK_NAME = "متجر ميزان بهاء العالمي — د. بهاء الدين علي زايد (Dr. Baha Eldien Ali Zayed)";
+    const EXTERNAL_PORTAL_URL = "https://github.com/dbahaali709-dev/mizan-store";
+
+    const items = [
+      {
+        id: "solar-station",
+        priceUsd: 450,
+        catAr: "طاقة محمولة",
+        catEn: "Portable Power",
+        nameAr: "محطات الطاقة الشمسية المحمولة",
+        nameEn: "Portable Solar Power Station",
+        descAr: "وحدة طاقة محمولة عالية الكفاءة للرحلات والاستخدام اليومي والطوارئ.",
+        descEn: "High-efficiency portable power unit for travel, daily use, and emergencies.",
+        btnAr: "إتمام الطلب عبر بنكك",
+        btnEn: "Pay via Bankak",
+        btnClass: "btn-blue"
+      },
+      {
+        id: "smart-watch",
+        priceUsd: 65,
+        catAr: "ساعات ذكية",
+        catEn: "Smart Watches",
+        nameAr: "ساعة ذكية الترا",
+        nameEn: "Smart Watch Ultra",
+        descAr: "شاشة واسعة ومزايا متابعة يومية بتصميم عملي ومتين.",
+        descEn: "Wide display and daily tracking features in a practical, durable design.",
+        btnAr: "إتمام الطلب والشحن",
+        btnEn: "Order & Ship",
+        btnClass: "btn-blue"
+      },
+      {
+        id: "car-display",
+        priceUsd: 120,
+        catAr: "تجهيزات السيارات",
+        catEn: "Car Electronics",
+        nameAr: "نظام عرض ذكي للسيارة",
+        nameEn: "DriveSync™ Smart Car Display",
+        descAr: "نظام عرض ذكي للسيارة للملاحة والاتصال اليومي بسهولة.",
+        descEn: "Smart in-car display system for smooth navigation and daily connectivity.",
+        btnAr: "إتمام الطلب عبر بنكك",
+        btnEn: "Pay via Bankak",
+        btnClass: "btn-blue"
+      },
+      {
+        id: "complete-bundle",
+        priceUsd: 290,
+        catAr: "باقات خاصة",
+        catEn: "Custom Bundles",
+        nameAr: "باقة تجهيز متكاملة",
+        nameEn: "Complete Setup Bundle",
+        descAr: "اختيار مخصص لطلبات الجملة أو التجهيزات الخاصة.",
+        descEn: "Tailored option for bulk orders or specialized setups.",
+        btnAr: "إتمام الطلب عبر بنكك",
+        btnEn: "Pay via Bankak",
+        btnClass: "btn-blue"
+      }
+    ];
+
+    let appState = loadSavedState();
+
+    function loadSavedState() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (raw && typeof raw === "object") {
+          return {
+            lang: raw.lang === "en" ? "en" : "ar",
+            currency: raw.currency || "USD",
+            selectedId: raw.selectedId || items[0].id,
+            name: raw.name || "",
+            contact: raw.contact || "",
+            ref: raw.ref || "",
+            orders: Array.isArray(raw.orders) ? raw.orders : []
+          };
+        }
+      } catch (e) {}
+      return {
+        lang: "ar",
+        currency: "USD",
+        selectedId: items[0].id,
+        name: "",
+        contact: "",
+        ref: "",
+        orders: []
+      };
+    }
+
+    function persistState() {
+      appState.name = document.getElementById("custName").value.trim();
+      appState.contact = document.getElementById("custContact").value.trim();
+      appState.ref = document.getElementById("bankakRef").value.trim();
+      appState.selectedId = document.getElementById("productSelect").value;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+    }
+
+    function getCurrency() {
+      const sel = document.getElementById("currencySelect");
+      const opt = sel.options[sel.selectedIndex] || sel.options[0];
+      return {
+        code: opt.value,
+        rate: parseFloat(opt.dataset.rate || "1"),
+        symbol: opt.dataset.symbol || "$"
+      };
+    }
+
+    function formatAmount(usd) {
+      const c = getCurrency();
+      return `${c.symbol}${(usd * c.rate).toFixed(2)}`;
+    }
+
+    function applyLanguageDir() {
+      document.documentElement.lang = appState.lang;
+      document.documentElement.dir = appState.lang === "en" ? "ltr" : "rtl";
+    }
+
+    function renderProducts() {
+      const wrap = document.getElementById("productsList");
+      wrap.innerHTML = items.map(item => `
+        <article class="product-card">
+          <div class="product-top-row">
+            <span class="price-pill ltr-text">${formatAmount(item.priceUsd)}</span>
+            <span class="cat-pill">${item.catAr}<br /><span class="ltr-text" style="font-size:0.78rem;">${item.catEn}</span></span>
+          </div>
+          <h3 class="prod-name-ar">${item.nameAr}</h3>
+          <p class="prod-name-en ltr-text">${item.nameEn}</p>
+          <p class="prod-desc-ar">${item.descAr}</p>
+          <p class="prod-desc-en ltr-text">${item.descEn}</p>
+          <button type="button" class="${item.btnClass}" style="width:100%;" onclick="selectProductAndOrder('${item.id}')">
+            <div>${item.btnAr}</div>
+            <div class="ltr-text" style="text-align:center;font-size:0.86rem;opacity:0.92;">${item.btnEn}</div>
+          </button>
+        </article>
+      `).join("");
+    }
+
+    function populateProductSelect() {
+      const sel = document.getElementById("productSelect");
+      sel.innerHTML = items.map(item => `
+        <option value="${item.id}">${item.nameAr} | ${item.nameEn} — ${formatAmount(item.priceUsd)}</option>
+      `).join("");
+      sel.value = appState.selectedId;
+      updateSelectedBanner();
+    }
+
+    function updateSelectedBanner() {
+      const item = items.find(x => x.id === appState.selectedId) || items[0];
+      document.getElementById("selectedProductLabel").textContent =
+        `${item.nameAr} | ${item.nameEn} — ${formatAmount(item.priceUsd)}`;
+    }
+
+    function onProductChange() {
+      appState.selectedId = document.getElementById("productSelect").value;
+      updateSelectedBanner();
+      persistState();
+    }
+
+    function selectProductAndOrder(id) {
+      appState.selectedId = id;
+      document.getElementById("productSelect").value = id;
+      updateSelectedBanner();
+      persistState();
+      scrollToEl("orderFormSection");
+    }
+
+    function focusOrderWithMode(mode) {
+      scrollToEl("orderFormSection");
+      if (mode === "bankak") {
+        document.getElementById("bankakDetailsBox").style.display = "block";
+        document.getElementById("bankakDetailsBox").innerHTML = `
+          <strong>بيانات تحويل بنكك | <span class="ltr-text">Bankak Transfer Details</span>:</strong><br />
+          رقم الحساب / <span class="ltr-text">Account No</span>: <strong>${BANKAK_ACCOUNT}</strong><br />
+          الاسم / <span class="ltr-text">Name</span>: <strong>${BANKAK_NAME}</strong><br />
+          البريد المعتمد / <span class="ltr-text">Merchant Email</span>: <strong class="ltr-text">${MERCHANT_EMAIL}</strong>
+        `;
+      }
+    }
+
+    function openExternalPortal() {
+      window.open(EXTERNAL_PORTAL_URL, "_blank", "noopener,noreferrer");
+    }
+
+    function buildOrderSummaryText() {
+      persistState();
+      const item = items.find(x => x.id === appState.selectedId) || items[0];
+      return [
+        "متجر ميزان بهاء العالمي | Mizan Baha Global Store",
+        "المؤسس: د. بهاء الدين علي زايد | Founder: Dr. Baha Eldien Ali Zayed",
+        `المنتج | Product: ${item.nameAr} | ${item.nameEn} (${formatAmount(item.priceUsd)})`,
+        `اسم العميل | Customer Name: ${appState.name || "-"}`,
+        `الهاتف أو البريد | Phone or Email: ${appState.contact || "-"}`,
+        `مرجع بنكك | Bankak Reference: ${appState.ref || "-"}`,
+        `حساب بنكك | Bankak: ${BANKAK_ACCOUNT}`,
+        `البريد المعتمد | Email: ${MERCHANT_EMAIL}`
+      ].join("\n");
+    }
+
+    function confirmAndShowBankak() {
+      persistState();
+      const out = document.getElementById("summaryBox");
+      if (!appState.name || !appState.contact) {
+        out.style.display = "block";
+        out.textContent = "يرجى إدخال اسم العميل ورقم الهاتف أو البريد أولاً. | Please enter customer name and phone or email first.";
+        return;
+      }
+
+      const summary = buildOrderSummaryText();
+      document.getElementById("bankakDetailsBox").style.display = "block";
+      document.getElementById("bankakDetailsBox").innerHTML = `
+        <strong>تم تأكيد بيانات العميل — بيانات حساب بنكك | <span class="ltr-text">Bankak Account Details</span>:</strong><br />
+        رقم الحساب / <span class="ltr-text">Account No</span>: <strong>${BANKAK_ACCOUNT}</strong><br />
+        الاسم / <span class="ltr-text">Name</span>: <strong>${BANKAK_NAME}</strong><br />
+        البريد المعتمد / <span class="ltr-text">Email</span>: <strong class="ltr-text">${MERCHANT_EMAIL}</strong>
+      `;
+
+      appState.orders.unshift({
+        id: "MZN-" + Date.now().toString().slice(-6),
+        time: new Date().toLocaleString(),
+        text: summary
+      });
+      persistState();
+      renderHistory();
+
+      out.style.display = "block";
+      out.textContent = summary;
+    }
+
+    function saveAndSendEmail() {
+      persistState();
+      const out = document.getElementById("summaryBox");
+      if (!appState.name || !appState.contact) {
+        out.style.display = "block";
+        out.textContent = "يرجى إدخال اسم العميل ورقم الهاتف أو البريد أولاً. | Please enter customer name and phone or email first.";
+        return;
+      }
+
+      const summary = buildOrderSummaryText();
+      appState.orders.unshift({
+        id: "MZN-" + Date.now().toString().slice(-6),
+        time: new Date().toLocaleString(),
+        text: summary
+      });
+      persistState();
+      renderHistory();
+
+      out.style.display = "block";
+      out.textContent = summary;
+
+      const subject = encodeURIComponent(`Mizan Baha Global Store Order - ${appState.name}`);
+      const body = encodeURIComponent(summary);
+      window.location.href = `mailto:${MERCHANT_EMAIL}?subject=${subject}&body=${body}`;
+    }
+
+    function copySummaryOnly() {
+      const summary = buildOrderSummaryText();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(summary).catch(() => {});
+      }
+      const out = document.getElementById("summaryBox");
+      out.style.display = "block";
+      out.textContent = `تم نسخ الملخص | Summary Copied:\n${summary}`;
+    }
+
+    function clearOrderForm() {
+      document.getElementById("custName").value = "";
+      document.getElementById("custContact").value = "";
+      document.getElementById("bankakRef").value = "";
+      document.getElementById("bankakDetailsBox").style.display = "none";
+      document.getElementById("summaryBox").style.display = "none";
+      persistState();
+    }
+
+    function renderHistory() {
+      const box = document.getElementById("historyList");
+      if (!appState.orders.length) {
+        box.className = "muted";
+        box.innerHTML = 'لا توجد طلبات مسجلة حالياً. | <span class="ltr-text">No orders recorded yet.</span>';
+        return;
+      }
+      box.className = "";
+      box.innerHTML = appState.orders.map(o => `
+        <div style="border-bottom:1px solid var(--border);padding:10px 0;white-space:pre-line;font-size:0.88rem;">
+          <strong>${o.id}</strong> — <span class="muted">${o.time}</span>\n${o.text}
+        </div>
+      `).join("");
+    }
+
+    function resetAll() {
+      localStorage.removeItem(STORAGE_KEY);
+      location.reload();
+    }
+
+    function scrollToEl(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+
+    document.getElementById("langSelect").value = appState.lang;
+    document.getElementById("currencySelect").value = appState.currency;
+    document.getElementById("custName").value = appState.name;
+    document.getElementById("custContact").value = appState.contact;
+    document.getElementById("bankakRef").value = appState.ref;
+
+    ["custName", "custContact", "bankakRef"].forEach(id => {
+      document.getElementById(id).addEventListener("input", persistState);
+    });
+
+    document.getElementById("langSelect").addEventListener("change", () => {
+      appState.lang = document.getElementById("langSelect").value;
+      persistState();
+      applyLanguageDir();
+    });
+
+    document.getElementById("currencySelect").addEventListener("change", () => {
+      appState.currency = document.getElementById("currencySelect").value;
+      persistState();
+      renderProducts();
+      populateProductSelect();
+    });
+
+    applyLanguageDir();
+    renderProducts();
+    populateProductSelect();
+    renderHistory();
+  </script>
+</body>
+</html>
